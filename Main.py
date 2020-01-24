@@ -2,7 +2,7 @@ from os import * # Import bash run abilities
 from os.path import expanduser
 home = expanduser("~")
 
-# from Shell import * # Import our classes from other files
+from Shell import * # Import our classes from other files
 
 import gi # Import GTK Stuff
 gi.require_version('Gtk', '3.0')
@@ -38,7 +38,8 @@ class HomeWindow(Gtk.ApplicationWindow):
             # print("Section "+i+"'s contents:")
             # for i in self.pages:
             #     print(i)
-        # winShell = Shell(self.notebooks, self.nb, self.sections, self.pages)
+        winShell = Shell(self.notebooks, self.nb, self.sections, self.pages)
+        self.add(winShell)
         
 
     
