@@ -14,6 +14,18 @@ class HomeWindow(Gtk.ApplicationWindow):
         Gtk.Window.__init__(self, title="Proprietary Notes")
         self.set_border_width(10)
 
+        if ("./monocle/" not in home+"/.local/share"):
+            system("mkdir ~/.local/share/monocle")
+
+        path = home+"/.local/share/monocle/"
+        self.notebooks = listdir(path)
+        for i in self.notebooks:
+            print (i)
+
+
+        dataManager = dataManager()
+        notebooks = 
+
         winShell = Shell()
         winShell.
 

@@ -9,8 +9,18 @@ class DataManager():
             system("mkdir ~/.local/share/monocle")
 
         path = home+"/.local/share/monocle/"
-        notebooks = listdir(path)
-        for i in notebooks:
+        self.notebooks = listdir(path)
+        for i in self.notebooks:
             print (i)
+
+        # return self.notebooks
+
+    def initData(self, notebooks):
+        return self.notebooks, self.nbselection, self.sections, self.pages
+        # return self.sections
+        # return self.pages
+    # def tabConversion(self, notebooks):
+    #     for i in notebooks:
+            
 
 debug = DataManager()

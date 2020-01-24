@@ -11,7 +11,10 @@ class Shell():
         sections.insert_page(gridBasics, labelBasics, 0)
         # tabLabel = Gtk.Label.new(tabName)
         pages = Gtk.Notebook.new()
-        pages.insert_page()
+        dataManager = dataManager()
+        dataManager.initData()
+
+        for i in 
 
     def newtab(self):
         
