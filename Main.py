@@ -19,7 +19,7 @@ class HomeWindow(Gtk.ApplicationWindow):
         # so this if statement checks if there is a file or directory called "monocle" in ~/.local/share,
         # and creates one if there is not
         if "monocle" not in listdir(join(home, ".local/share")):
-            system("mkdir ~/.local/share/monocle")
+            mkdir(join(home, ".local/share/monocle"))
 
         path = home+"/.local/share/monocle/"
         self.notebooks = listdir(path)
