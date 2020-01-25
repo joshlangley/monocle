@@ -18,19 +18,24 @@ class HomeWindow(Gtk.ApplicationWindow):
 
         path = home+"/.local/share/monocle/"
         self.notebooks = listdir(path)
-        self.nb = self.notebooks[0]
-        self.sections = listdir(path+self.nb)
-        for i in self.sections:
-            self.pages = listdir(path+self.nb+"/"+i)
-
         print ("Notebooks:")
         for i in self.notebooks:
             print (i)
-
-        print("Notebook "+self.nb+" selected.")
+        self.activeNotebook = self.notebooks[1]
+        print("Notebook "+self.activeNotebook+" selected.")
+        self.sections = listdir(path+self.activeNotebook)
         print("Sections:")
         for i in self.sections:
             print(i)
+        self.activeSection = self.sections[1]
+        print("Section "+self.activeSection+" selected.")
+        self.pages = listdir(path+self.activeNotebook+"/"+self.activeSection)
+        self.activePage = self.pages[0]
+
+        
+
+        
+        
             # BYRON: Please don't work on trying to fix this. I forgot that 
             # there really is no real need for what I was trying to do anyway. 
             # (Besides, I bet it was just bad logic because I'm so tired.)
@@ -38,14 +43,11 @@ class HomeWindow(Gtk.ApplicationWindow):
             # print("Section "+i+"'s contents:")
             # for i in self.pages:
             #     print(i)
-        winShell = Shell(self.notebooks, self.nb, self.sections, self.pages)
-        self.add(winShell)
-        
-
-    
-
-
-
+        winShell = Shell()
+        # self, notebooks, activeNotebook, sections, activeSection, pages, activePage
+        gtkShell = winShell.tabInit(path, self.notebooks, self.activeNotebook, self.sections, self.activeSection, self.pages, self.activePage)
+        self.add(gtkShell)
+       
 win = HomeWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
