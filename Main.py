@@ -1,5 +1,5 @@
 from os import * # Import bash run abilities
-from os.path import expanduser
+from os.path import expanduser, join
 home = expanduser("~")
 
 from Shell import * # Import our classes from other files
@@ -14,7 +14,12 @@ class HomeWindow(Gtk.ApplicationWindow):
         # Construct window
         Gtk.Window.__init__(self, title="Monocle")
         self.set_border_width(10)
-        system("mkdir ~/.local/share/monocle")
+
+        # os.path.join automatically adds a slash between home and ".local/share"
+        # so this if statement checks if there is a file or directory called "monocle" in ~/.local/share,
+        # and creates one if there is not
+        if "monocle" not in listdir(join(home, ".local/share")):
+            system("mkdir ~/.local/share/monocle")
 
         path = home+"/.local/share/monocle/"
         self.notebooks = listdir(path)
