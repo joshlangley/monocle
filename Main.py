@@ -21,7 +21,7 @@ class HomeWindow(Gtk.ApplicationWindow):
         print ("Notebooks:")
         for i in self.notebooks:
             print (i)
-        self.activeNotebook = self.notebooks[1]
+        self.activeNotebook = self.notebooks[0]
         print("Notebook "+self.activeNotebook+" selected.")
         self.sections = listdir(path+self.activeNotebook)
         print("Sections:")
