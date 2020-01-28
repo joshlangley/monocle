@@ -15,21 +15,23 @@ class HomeWindow(Gtk.ApplicationWindow):
         Gtk.Window.__init__(self, title="Monocle")
         self.set_border_width(10)
         system("mkdir ~/.local/share/monocle")
+        system("mkdir ~/.monocle")
 
-        path = home+"/.local/share/monocle/"
-        self.notebooks = listdir(path)
+        appdata = home+"/.local/share/monocle/"
+        nbpath = home+"/.monocle/"
+        self.notebooks = listdir(nbpath)
         print ("Notebooks:")
         for i in self.notebooks:
             print (i)
         self.activeNotebook = self.notebooks[0]
         print("Notebook "+self.activeNotebook+" selected.")
-        self.sections = listdir(path+self.activeNotebook)
+        self.sections = listdir(nbpath+self.activeNotebook)
         print("Sections:")
         for i in self.sections:
             print(i)
         self.activeSection = self.sections[1]
         print("Section "+self.activeSection+" selected.")
-        self.pages = listdir(path+self.activeNotebook+"/"+self.activeSection)
+        self.pages = listdir(nbpath+self.activeNotebook+"/"+self.activeSection)
         self.activePage = self.pages[0]
 
         
@@ -45,7 +47,7 @@ class HomeWindow(Gtk.ApplicationWindow):
             #     print(i)
         winShell = Shell()
         # self, notebooks, activeNotebook, sections, activeSection, pages, activePage
-        gtkShell = winShell.tabInit(path, self.notebooks, self.activeNotebook, self.sections, self.activeSection, self.pages, self.activePage)
+        gtkShell = winShell.tabInit(appdata, nbpath, self.notebooks, self.activeNotebook, self.sections, self.activeSection, self.pages, self.activePage)
         self.add(gtkShell)
        
 win = HomeWindow()

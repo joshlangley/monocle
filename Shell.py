@@ -13,7 +13,7 @@ class Shell():
         self.pages = Gtk.Notebook.new()
         self.pages.set_tab_pos (Gtk.PositionType.LEFT)
             
-    def tabInit(self, path, notebooks, activeNotebook, sections, activeSection, pages, activePage):
+    def tabInit(self, appdata, nbpath, notebooks, activeNotebook, sections, activeSection, pages, activePage):
         numberofSections = 0
         for i in sections:
             # self.makeSection(i, k, self.pages)
@@ -22,7 +22,7 @@ class Shell():
             # self.add()
         numberofPages = 0
         for i in pages:
-            self.pages.insert_page(Gtk.Image.new_from_file(path+"tuxmonocle.png"), Gtk.Label.new(i), numberofPages)
+            self.pages.insert_page(Gtk.Image.new_from_file(appdata+"tuxmonocle.png"), Gtk.Label.new(i), numberofPages)
             numberofPages = numberofPages+1
 
         return self.sections
