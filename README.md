@@ -9,7 +9,7 @@ A simple but powerful Note taking app with a similar layout to OneNote.
 # Testing
 To test this system, you will need a testable "~/.local/share/monocle" directory. Please copy the one provided to this location.
 
-# Projects / assignments - Stage One (pre-alpha)
+# Tasks for Pre-Alpha version (0.0.0)
 [-] Example - self.ex
 [-] Make page tabs vertical (aligned left) - Bryden, Carter
 [] Make snazzy backdrops for no open page - Josh
@@ -17,4 +17,10 @@ To test this system, you will need a testable "~/.local/share/monocle" directory
 [] Make code for no open sections - Josh
 [] Make code for no open notebooks - Josh
 [] Export logo icons (Main - 512x512 and Symbolic - 16x16) - Ben
+[] Make ability to add notebooks, sections, and pages - <OPEN>
+[] Learn how to insert plain text editor widget - <OPEN>
+
+# Tasks for Alpha release (0.0)
+
+# Tasks for Pre-Beta version (0.1.0)
 [] Find a good text editor API (Render md / Type with formatting / Both) - EVERYONE
