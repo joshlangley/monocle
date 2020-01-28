@@ -11,8 +11,7 @@ class Shell():
         self.sections = Gtk.Notebook.new()
         # tabLabel = Gtk.Label.new(tabName)
         self.pages = Gtk.Notebook.new()
-
-        
+        self.pages.set_tab_pos (Gtk.PositionType.LEFT)
             
     def tabInit(self, path, notebooks, activeNotebook, sections, activeSection, pages, activePage):
         numberofSections = 0

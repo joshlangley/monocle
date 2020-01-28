@@ -11,7 +11,7 @@ To test this system, you will need a testable "~/.local/share/monocle" directory
 
 # Projects / assignments - Stage One (pre-alpha)
 [-] Example - self.ex
-[] Make page tabs vertical (aligned left) - Bryden, Carter
+[-] Make page tabs vertical (aligned left) - Bryden, Carter
 [] Make snazzy backdrops for no open page - Josh
 [] Make code for no open page - Josh
 [] Make code for no open sections - Josh
