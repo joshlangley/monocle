@@ -34,17 +34,6 @@ class HomeWindow(Gtk.ApplicationWindow):
         self.pages = listdir(nbpath+self.activeNotebook+"/"+self.activeSection)
         self.activePage = self.pages[0]
 
-        
-
-        
-        
-            # BYRON: Please don't work on trying to fix this. I forgot that 
-            # there really is no real need for what I was trying to do anyway. 
-            # (Besides, I bet it was just bad logic because I'm so tired.)
-            # 
-            # print("Section "+i+"'s contents:")
-            # for i in self.pages:
-            #     print(i)
         winShell = Shell()
         # self, notebooks, activeNotebook, sections, activeSection, pages, activePage
         gtkShell = winShell.tabInit(appdata, nbpath, self.notebooks, self.activeNotebook, self.sections, self.activeSection, self.pages, self.activePage)
