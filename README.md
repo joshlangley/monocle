@@ -18,7 +18,7 @@ To test this system, you will need a testable "~/.local/share/monocle" directory
 [] Make code for no open notebooks - Josh
 [] Export logo icons (Main - 512x512 and Symbolic - 16x16) - Ben
 [] Make ability to add notebooks, sections, and pages - <OPEN>
-[] Learn how to insert plain text editor widget - <OPEN>
+[] Learn how to insert plain text editor widget - Bryden
 
 # Tasks for Alpha release (0.0)
 
