@@ -13,3 +13,13 @@ print (pr)
 print("platform.linux_distribution()")
 ld = platform.linux_distribution()
 print(ld)
+
+listtest = ["hi", 0, 3]
+# for i in listtest:
+#     print(i)
+
+listtest = listtest+["hello"]
+for i in listtest:
+    print(i)
+
+print(listtest[-1])
