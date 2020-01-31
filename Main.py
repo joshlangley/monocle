@@ -2,8 +2,6 @@ from os import * # Import bash run abilities
 from os.path import expanduser
 home = expanduser("~")
 
-from Shell import * # Import our classes from other files
-
 import gi # Import GTK Stuff
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
@@ -13,33 +11,77 @@ class HomeWindow(Gtk.ApplicationWindow):
     def __init__(self):
         # Construct window
         Gtk.Window.__init__(self, title="Monocle")
-        self.set_border_width(10)
+        # self.set_border_width(3)
         system("mkdir ~/.local/share/monocle")
         system("mkdir ~/.monocle")
 
-        appdata = home+"/.local/share/monocle/"
-        nbpath = home+"/.monocle/"
-        self.notebooks = listdir(nbpath)
-        print ("Notebooks:")
-        for i in self.notebooks:
-            print (i)
-        self.activeNotebook = self.notebooks[0]
-        print("Notebook "+self.activeNotebook+" selected.")
-        self.sections = listdir(nbpath+self.activeNotebook)
-        print("Sections:")
-        for i in self.sections:
-            print(i)
-        self.activeSection = self.sections[1]
-        print("Section "+self.activeSection+" selected.")
-        self.pages = listdir(nbpath+self.activeNotebook+"/"+self.activeSection)
-        self.activePage = self.pages[0]
+        self.appdata = home+"/.local/share/monocle/"
+        self.nbpath = home+"/.monocle/"
 
-        winShell = Shell()
-        # self, notebooks, activeNotebook, sections, activeSection, pages, activePage
-        gtkShell = winShell.tabInit(appdata, nbpath, self.notebooks, self.activeNotebook, self.sections, self.activeSection, self.pages, self.activePage)
-        self.add(gtkShell)
-       
+        # self.appStates = "INIT" # Alt READY
+
+    def init(self):
+        self.sectionnb = Gtk.Notebook.new()
+        self.sections = []
+
+        #Notebook
+        self.nblist = listdir(self.nbpath)
+        if not self.nblist:
+            self.nblist = self.nblist+["isempty"]
+        else:
+            self.selectednb = self.nblist[0]
+
+
+        #Make Sections widgets
+        self.seclist = listdir(self.nbpath+self.selectednb)
+        if not self.seclist:
+            self.seclist = self.seclist+["isemptynotebook"]
+        else:
+            for sec in self.seclist:
+                sec = Gtk.Notebook.new()
+                self.sections = self.sections+[sec]
+
+        #Set nb gtk.notebook widget up (top level nb widget)
+        if "isemptynotebook" in self.nblist:
+            emptnb = Gtk.Image.new()
+            emptnb.set_from_file(self.appdata+"walls"+"/bionic.png")
+        else:
+            k=0
+            pos=0                            # Add the pages to top level nb widget
+            for sec in self.seclist:
+                secwid = self.sections[k]
+                seclab = Gtk.Label.new(sec)
+                self.sectionnb.insert_page(secwid, seclab, pos)
+                k=k+1
+                
+                #Set section pages
+                # pglist = listdir(self.nbpath+self.selectednb+"/"+sec)
+                
+                # if not pglist:
+                #     pglist = pglist+["isemptysection"]
+                # else:
+                #     for pg in pglist:
+                #         pgwid = Gtk.Image.new()
+                #         pgwid.set_from_file(self.appdata+"tuxmonocle.png")
+                #         pglab = Gtk.Label.new(pg)
+
+                #         secwid.insert_page(pgwid, pglab, pos)
+
+                pos=-1
+     
+
+        self.add(self.sectionnb)
+
+    def ready(self):
+        print("READY")
+
+    def debugout(self):
+        print("Notebooks:")
+        print(self.nblist)
+
 win = HomeWindow()
+win.init()
+
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
