@@ -12,11 +12,12 @@ To test this system, you will need a testable "~/.local/share/monocle" directory
 # Tasks for Pre-Alpha version (0.0.*)
 [-] Example - self.ex
 [-] Make page tabs vertical (aligned left) - Bryden, Carter
+[] FIGURE OUT THE NEW ERROR (Why does it suddenly think there's nothing in the list? [I think the nblist]) - <Open>
 [] Rebuild initial code as better - Josh
-[] Make snazzy backdrops for no open page - Josh
-[] Make code for no open page - Josh
-[] Make code for no open sections - Josh
-[] Make code for no open notebooks - Josh
+[-] Make snazzy backdrops for no open page - Josh
+[] Make and test code for no open page - Josh
+[] Make and test code for no open sections - Josh
+[] Make and test code for no open notebooks - Josh
 [] Export logo icons (Main - 512x512 and Symbolic - 16x16) - Ben
 [] Make ability to add notebooks, sections, and pages - <OPEN>
 [] Learn how to insert plain text editor widget - Bryden

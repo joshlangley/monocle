@@ -40,7 +40,8 @@ class HomeWindow(Gtk.ApplicationWindow):
             self.seclist = self.seclist+["isemptynotebook"]
         else:
             for sec in self.seclist:
-                sec = Gtk.Notebook.new()
+                # sec = Gtk.Notebook.new()
+                self.sec = SectionWidget(sec, self.appdata, self.nbpath, self.selectednb)
                 self.sections = self.sections+[sec]
 
         #Set nb gtk.notebook widget up (top level nb widget)
