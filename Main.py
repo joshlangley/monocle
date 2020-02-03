@@ -36,6 +36,8 @@ class HomeWindow(Gtk.ApplicationWindow):
 
         #Make Sections widgets
         self.seclist = listdir(self.nbpath+self.selectednb)
+        print("Sections in selected notebook "+self.selectednb+":")
+        print(self.seclist)
         if not self.seclist:
             self.seclist = self.seclist+["isemptynotebook"]
         else:
@@ -50,7 +52,7 @@ class HomeWindow(Gtk.ApplicationWindow):
         if "isemptynotebook" in self.seclist:
             emptnb = Gtk.Image.new()
             emptnb.set_from_file(self.appdata+"walls"+"/bionic.png")
-            emptlab = Gtk.Label.new("Nothing Opened")
+            emptlab = Gtk.Label.new("No sections yet!")
             self.sectionnb.insert_page(emptnb, emptlab, -1)
         else:
             k=0                            # Add the pages to top level nb widget
@@ -59,29 +61,9 @@ class HomeWindow(Gtk.ApplicationWindow):
                 seclab = Gtk.Label.new(sec)
                 self.sectionnb.insert_page(secwid, seclab, -1)
                 k=k+1
-                
-                #Set section pages
-                # pglist = listdir(self.nbpath+self.selectednb+"/"+sec)
-                
-                # if not pglist:
-                #     pglist = pglist+["isemptysection"]
-                # else:
-                #     for pg in pglist:
-                #         pgwid = Gtk.Image.new()
-                #         pgwid.set_from_file(self.appdata+"tuxmonocle.png")
-                #         pglab = Gtk.Label.new(pg)
-
-                #         secwid.insert_page(pgwid, pglab, -1)
      
 
         self.add(self.sectionnb)
-
-    def ready(self):
-        print("READY")
-
-    def debugout(self):
-        print("Notebooks:")
-        print(self.nblist)
 
 class SectionWidget():
     def __init__(self, name, appdata, nbpath, selectednb):
@@ -92,24 +74,18 @@ class SectionWidget():
         self.pages = Gtk.Notebook.new()
 
         self.pglist = listdir(self.nbpath+self.selectednb+"/"+self.name)
-        # print(self.pglist)
-        # if not self.pglist:
-        #     self.pglist = self.pglist+["isemptysection"]
-        # else:
-        #     for pg in self.pglist:
-        #         pgwid = Gtk.Image.new()
-        #         pgwid.set_from_file(self.appdata+"tuxmonocle.png")
-        #         pglab = Gtk.Label.new(pg)
-        
-        #         self.pages.insert_page(pgwid, pglab, -1)        
-
-        # return self.pages
 
     def init(self, name, appdata, nbpath, selectednb):
         print("Pages in section "+name+":")
         print(self.pglist)
         if not self.pglist:
             self.pglist = self.pglist+["isemptysection"]
+            
+            print("Empty Section")
+            emptsec = Gtk.Image.new()
+            emptsec.set_from_file(self.appdata+"walls"+"/bionic.png")
+            emptlab = Gtk.Label.new("No pages here yet!")
+            self.pages.insert_page(emptsec, emptlab, -1)
         else:
             for pg in self.pglist:
                 pgwid = Gtk.Image.new()
