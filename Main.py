@@ -18,6 +18,8 @@ class HomeWindow(Gtk.ApplicationWindow):
         self.appdata = home+"/.local/share/monocle/"
         self.nbpath = home+"/.monocle/"
 
+        # self.selectednb = nbpath+appstate.??[1]
+
         # self.appStates = "INIT" # Alt READY
 
     def init(self):
@@ -42,16 +44,17 @@ class HomeWindow(Gtk.ApplicationWindow):
                 self.sections = self.sections+[sec]
 
         #Set nb gtk.notebook widget up (top level nb widget)
-        if "isemptynotebook" in self.nblist:
+        if "isemptynotebook" in self.seclist:
             emptnb = Gtk.Image.new()
             emptnb.set_from_file(self.appdata+"walls"+"/bionic.png")
+            emptlab = Gtk.Label.new("Nothing Opened")
+            self.sectionnb.insert_page(emptnb, emptlab, -1)
         else:
-            k=0
-            pos=0                            # Add the pages to top level nb widget
+            k=0                            # Add the pages to top level nb widget
             for sec in self.seclist:
                 secwid = self.sections[k]
                 seclab = Gtk.Label.new(sec)
-                self.sectionnb.insert_page(secwid, seclab, pos)
+                self.sectionnb.insert_page(secwid, seclab, -1)
                 k=k+1
                 
                 #Set section pages
@@ -65,9 +68,7 @@ class HomeWindow(Gtk.ApplicationWindow):
                 #         pgwid.set_from_file(self.appdata+"tuxmonocle.png")
                 #         pglab = Gtk.Label.new(pg)
 
-                #         secwid.insert_page(pgwid, pglab, pos)
-
-                pos=-1
+                #         secwid.insert_page(pgwid, pglab, -1)
      
 
         self.add(self.sectionnb)
@@ -78,6 +79,30 @@ class HomeWindow(Gtk.ApplicationWindow):
     def debugout(self):
         print("Notebooks:")
         print(self.nblist)
+
+class SectionWidget():
+    def __init__(self, name, appdata, nbpath, selectednb):
+        self.name = name
+        self.appdata = appdata
+        self.nbpath = nbpath
+        self.selectednb = selectednb
+        self.pages = Gtk.Notebook.new()
+
+        self.pglist = listdir(self.nbpath+self.selectednb+"/"+self.name)
+
+        if not pglist:
+            pglist = pglist+["isemptysection"]
+        else:
+            for pg in pglist:
+                pgwid = Gtk.Image.new()
+                pgwid.set_from_file(self.appdata+"tuxmonocle.png")
+                pglab = Gtk.Label.new(pg)
+        
+                secwid.insert_page(pgwid, pglab, -1)        
+
+        return pages
+    
+    # def 
 
 win = HomeWindow()
 win.init()
