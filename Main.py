@@ -116,7 +116,9 @@ class SectionWidget():
                 pgwid.set_from_file(self.appdata+"tuxmonocle.png")
                 pglab = Gtk.Label.new(pg)
         
-                self.pages.insert_page(pgwid, pglab, -1)        
+                self.pages.insert_page(pgwid, pglab, -1)
+
+        self.pages.set_tab_pos(Gtk.PositionType.LEFT)        
         return self.pages
     
     # def 
