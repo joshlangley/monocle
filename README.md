@@ -12,7 +12,7 @@ To test this system, you will need a testable "~/.local/share/monocle" directory
 # Tasks for Pre-Alpha version (0.0.*)
 [-] Example - self.ex
 [-] Make page tabs vertical (aligned left) - Bryden, Carter
-[] FIGURE OUT THE NEW ERROR (Why does it suddenly think there's nothing in the list? [I think the nblist]) - <Open>
+[-] FIGURE OUT THE NEW ERROR (Why does it suddenly think there's nothing in the list? [I think the nblist]) - <Open>
 [-] Rebuild initial code as better - Josh
 [-] Make snazzy backdrops for no open page - Josh
 [] Make and test code for no open page - Josh
