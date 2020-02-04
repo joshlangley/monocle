@@ -23,6 +23,8 @@ To test this system, you will need a testable "~/.local/share/monocle" and "~/.m
 [] Create custom Gtk Titlebar and populate it with basic buttons - Josh
 [] Make ability to add notebooks, sections, and pages - <OPEN>
 [] Learn how to insert plain text editor widget - Bryden
+[] Figure out how to set app icon and symbolic icon - <OPEN>
+[] Figure out how to set GNOME shell app name - <OPEN>[Someone running the GNOME DE: Carter, Josh, Byron?]
 [] Find a good text editor API (Render md / Type with formatting / Both) - EVERYONE
     -> Perhaps Quill? (It seems to be our best shot right now)
 [] Learn how to run said editor - Carter, !Ben (As has been made clear)
