@@ -18,9 +18,12 @@ class HomeWindow(Gtk.ApplicationWindow):
         self.appdata = home+"/.local/share/monocle/"
         self.nbpath = home+"/.monocle/"
 
-        # self.selectednb = nbpath+appstate.??[1]
+        self.head = Gtk.HeaderBar.new()
+        self.head.set_title("Monocle")
+        self.head.set_show_close_button(True)
+        self.set_titlebar(self.head)
 
-        # self.appStates = "INIT" # Alt READY
+        # self.selectednb = nbpath+appstate.??[1]
 
     def init(self):
         self.sectionnb = Gtk.Notebook.new()
