@@ -1,3 +1,4 @@
+#!/bin/env python3.7
 from os import * # Import bash run abilities
 from os.path import expanduser
 home = expanduser("~")
