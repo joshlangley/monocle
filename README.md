@@ -19,7 +19,8 @@ To test this system, you will need a testable "~/.local/share/monocle" and "~/.m
 - [x] Make and test code for no open sections - Josh
 - [ ] Create Gtk Pixbuf system (So that the appwindow determines the size of backdrop and not the other way around) - Carter
 - [ ] Make and test code for no open notebooks - Josh
-- [ ] Export logo icons (Main - 512x512 and Symbolic - 16x16) - Ben
+- [ ] Export logo icons (Main - 512x512 and Symbolic - 16x16) - Ben [DEADLINE:Feb5]
+- [ ] Find a good public license system wich allows for charging $ for extensions / etc. - Ben [DEADLINE:Feb5]
 - [ ] Create custom Gtk Titlebar and populate it with basic buttons - Josh
 - [ ] Make ability to add notebooks, sections, and pages - <OPEN>
 - [ ] Learn how to insert plain text editor widget - Bryden
