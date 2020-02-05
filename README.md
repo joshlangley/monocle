@@ -9,6 +9,8 @@ A simple but powerful Note taking app with a similar layout to OneNote back when
 # Testing
 To test this system, you will need a testable "~/.local/share/monocle" and "~/.monocle" directory. Please copy the ones provided in the repository to these specified locations. It will populate these things by itself at some point soon, but not yet.
 
+You can also mark Main.py as executable, and it will run as a local MIME command. (cd to project dir and type ./Main.py)
+
 # Tasks for Alpha release (0.0.*)
 - [x] Example - self.ex
 - [x] Make page tabs vertical (aligned left) - Bryden, Carter
