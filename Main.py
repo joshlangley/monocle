@@ -19,6 +19,9 @@ class HomeWindow(Gtk.ApplicationWindow):
         self.appdata = home+"/.local/share/monocle/"
         self.nbpath = home+"/.monocle/"
 
+        # HomeWindow inherits the set_wmclass method from Gtk.ApplicationWindow
+        self.set_wmclass("Monocle", "Monocle")
+
         self.head = Gtk.HeaderBar.new()
         self.head.set_title("Monocle")
         self.head.set_show_close_button(True)
