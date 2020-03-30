@@ -1,0 +1,18 @@
+
+  name: monocle
+  version: '0.0.1' # just for humans, typically '1.2+git' or '1.3.2'
+  summary: A simple but powerful Note taking app with a similar layout to OneNote back when it was good. # 79 char long summary
+  description: |
+    OneNote is actually pretty good, and the interface used to be really pretty. There really isn't another note taking app that compares with it's functionality. Monocle has not achieved that level yet, but it plans to someday.
+    
+    Monocle is still in `devel/alpha`. It should not be used except for tesing and debugging.
+
+  grade: devel # must be 'stable' to release into candidate/stable channels
+  confinement: devmode # use 'strict' once you have the right plugs and slots
+
+  parts:
+    monocle:
+      # See 'snapcraft plugins'
+      plugin: python
+      python-version: python3
+  
